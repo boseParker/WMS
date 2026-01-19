@@ -33,7 +33,7 @@ const StockMovementInboundFilters = ({
   ), [debounceTime, minSearchLength]);
 
   return (
-    <div className="d-flex flex-column list-page-filters">
+    <div className="d-flex flex-column list-page-filters ">
       <FilterForm
         searchFieldId="q"
         searchFieldPlaceholder="react.stockMovement.search.placeholder.label"

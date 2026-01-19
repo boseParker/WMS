@@ -13,7 +13,7 @@ const FilterVisibilityToggler = ({ filtersHidden, amountFilled, setFiltersHidden
 
   return (
     <button
-      className="d-flex align-items-center hide-filters-button"
+      className="d-flex flex-column align-items-center hide-filters-button"
       type="button"
       onClick={() => setFiltersHidden(!filtersHidden)}
     >

@@ -145,8 +145,8 @@ const FilterForm = ({
           return (
             <form onSubmit={handleSubmit} className="w-100 m-0">
               <div className="classic-form with-description align-items-center flex-wrap">
-                <div className="w-100 d-flex filter-header align-items-center">
-                  <div className="min-w-50 d-flex align-items-center gap-8">
+                <div className="w-100 d-flex flex-column flex-md-row filter-header align-items-start align-items-md-center">
+                  <div className="min-w-100 d-flex flex-column flex-md-row align-items-start align-items-md-center gap-8">
                     {_.map(
                       // Render filters with top: true
                       _.pickBy(filterFields, (field) => field.attributes?.top),
@@ -164,7 +164,7 @@ const FilterForm = ({
                     />
                     )}
                   </div>
-                  <div className="d-flex justify-content-end buttons">
+                  <div className="w-100 d-flex flex-column flex-md-row justify-content-md-end buttons mt-2 mt-md-0">
                     <Button
                       defaultLabel="Clear"
                       label="react.button.clear.label"
@@ -187,8 +187,12 @@ const FilterForm = ({
                     && _.map(
                       // Render filters with top: false
                       _.pickBy(filterFields, (field) => !field.attributes?.top),
-                      (fieldConfig, fieldName) =>
-                        renderFormField(fieldConfig, fieldName, formProps),
+                      (fieldConfig, fieldName) =>(
+                        <div key={fieldName} className="col-12 col-md-auto p-0">
+                          {renderFormField(fieldConfig, fieldName, formProps)}
+                         </div> 
+                      )
+                        
                     )}
                 </div>
               </div>

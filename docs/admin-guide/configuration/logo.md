@@ -5,7 +5,7 @@ certain UI elements to match their identity without modifying the core codebase.
 ```yaml
 openboxes:
     logo:
-        url: "/assets/openboxes_logo_40x40.jpg"
+        url: "/assets/logo-redmind.jpg"
 ```
 
 ## Customization 
@@ -16,7 +16,7 @@ due to the fact that the context path is not being added properly. In order to f
 simply add the context path to the logo URL.
 
 ```yaml title="Add missing context path"
-openboxes.logo.url: "/openboxes/assets/openboxes_logo_40x40.jpg"
+openboxes.logo.url: "/openboxes/assets/logo-redmind.jpg"
 ```
 
 ### Using a Hosted Image

@@ -261,3 +261,48 @@
     padding: 0 8px !important;
   }
 }
+
+/* ================================
+   TABLET FIX (768px – 1024px)
+   ================================ */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* Navbar spacing */
+  .main-wrapper {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Header buttons stay in one row */
+  .list-page-header {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px;
+  }
+
+  .list-page-header .buttons {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px;
+  }
+
+  /* Buttons size consistency */
+  .list-page-header .buttons button,
+  .list-page-header .buttons a {
+    height: 36px;
+    white-space: nowrap;
+  }
+
+  /* Filters layout – grid-like */
+  .list-page-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .list-page-filters > * {
+    flex: 0 0 auto;
+    min-width: 200px;
+  }
+}
+

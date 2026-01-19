@@ -967,7 +967,8 @@ div.search-input {
   padding: 6px 12px;
   gap: 8px;
   height: 36px;
-  width: 520px;
+  // width: 520px;
+  width: 100%;
   background: #FFFFFF;
   border: 1px solid var(--gray-300);
   border-radius: 2px;
@@ -1268,6 +1269,7 @@ div.search-input:focus-within {
     background-color: #FFFFFF;
     border-radius: 4px;
     padding: 16px;
+   
 
     .filter-group {
       height: 38px;
@@ -1864,5 +1866,12 @@ div.search-input:focus-within {
     top: 15px;
     right: 15px;
     color: var(--gray-400) ;
+  }
+}
+
+/* Mobile only */
+@media (max-width: 767px) {
+  .list-page-filters {
+    margin-top: 68px;
   }
 }

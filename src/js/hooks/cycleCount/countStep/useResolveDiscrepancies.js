@@ -159,8 +159,7 @@ const useResolveDiscrepancies = ({
       }, []);
 
       dispatch(eraseDraft(currentLocationId, TO_COUNT_TAB));
-      const requestIdsWithoutDiscrepancies =
-        submittedCounts.length - requestIdsWithDiscrepancies.current.length;
+      const requestIdsWithoutDiscrepancies = submittedCounts.length - requestIdsWithDiscrepancies.current.length;
 
       if (requestIdsWithDiscrepancies.current.length > 0) {
         openResolveDiscrepanciesModal(
