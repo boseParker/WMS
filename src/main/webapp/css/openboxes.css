@@ -4168,3 +4168,84 @@ table.pvtTable tr th { background-color: #ddd; }
 .grayed {
     background-color: var(--gray-200) !important;
 }
+
+/* ============================
+   MOBILE & TABLET RESPONSIVE
+   ============================ */
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#doc3 {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#main-wrapper {
+    width: 100% !important;
+    padding: 0 12px;
+}
+
+/* Disable hover dropdown on mobile */
+@media (max-width: 991px) {
+
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .navbar-collapse {
+        width: 100%;
+        background: white;
+        padding: 8px 0;
+    }
+
+    .menu-wrapper {
+        width: 100%;
+        padding: 0;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        margin: 0;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item a,
+    .navbar-nav .collapsable button {
+        width: 100%;
+        text-align: left;
+        padding: 12px 16px !important;
+    }
+
+    .dropdown-menu {
+        position: static !important;
+        width: 100%;
+        box-shadow: none;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 576px) {
+    .location-chooser__button-title {
+        max-width: 140px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .nav-item > a {
+        padding: 0 10px !important;
+        font-size: 14px;
+    }
+
+    .dropdown-menu-subsections {
+        max-width: 90vw;
+    }
+}
+

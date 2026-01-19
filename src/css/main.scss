@@ -1569,17 +1569,21 @@ div.search-input:focus-within {
 
 // Info bars styling
 .info-bar {
-  height: 50px;
+  min-height: 56px;
+  max-height: 80px;
+  height: auto;
   background-color: var(--blue-primary);
   color: #FFFFFF;
   width: 100%;
-  padding: 12px 32px;
+  padding: 0.5rem 1rem;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
 
   .info-bar-redirect > a {
       text-decoration: underline;
@@ -1595,6 +1599,19 @@ div.search-input:focus-within {
     text-decoration: underline;
     font-weight: 500;
     cursor: pointer;
+  }
+}
+
+.info-bar-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .info-bar {
+    min-height: 48px;
+    max-height: 100px;
+    padding: 0.25rem 0.5rem;
   }
 }
 

@@ -7,7 +7,7 @@ import { REQUISITION_TEMPLATE_URL } from 'consts/applicationUrls';
 import Translate from 'utils/Translate';
 
 const StockListHeader = ({ isUserAdmin }) => (
-  <div className="d-flex list-page-header">
+  <div className="">
     <span className="d-flex align-self-center title">
       <Translate id="react.stocklists.header.label" defaultMessage="Stock List" />
     </span>

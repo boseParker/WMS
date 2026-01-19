@@ -117,7 +117,7 @@
 
     <!-- Header "hd" includes includes logo, global navigation -->
     <g:if test="${session?.user && session?.warehouse}">
-        <nav aria-label="main" id="main-wrapper" class="navbar navbar-expand-md navbar-light bg-light bg-white p-0 px-md-4">
+        <nav aria-label="main" id="main-wrapper" class="navbar navbar-expand-lg navbar-light bg-light bg-white p-0 px-md-4">
             <div class="d-flex p-2 p-md-0 justify-content-between flex-grow-1">
                 <div class="d-flex align-items-center">
                 <g:displayLogo location="${session?.warehouse?.id}" includeLink="${true}" />

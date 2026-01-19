@@ -188,7 +188,7 @@ const FilterForm = ({
                       // Render filters with top: false
                       _.pickBy(filterFields, (field) => !field.attributes?.top),
                       (fieldConfig, fieldName) =>(
-                        <div key={fieldName} className="col-12 col-md-auto p-0">
+                        <div key={fieldName} className="col-12 col-md-auto pt-4 p-0">
                           {renderFormField(fieldConfig, fieldName, formProps)}
                          </div> 
                       )

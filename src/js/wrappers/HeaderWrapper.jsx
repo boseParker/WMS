@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const HeaderWrapper = ({ children, className }) => (
-  <div className={`d-flex list-page-header ${className}`}>
+  <div className={` ${className}`}>
     {children}
   </div>
 );
