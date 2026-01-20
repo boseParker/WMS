@@ -1,3 +1,33 @@
+@media (max-width: 600px) {
+    .stock-transfer-buttons {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    .stock-transfer-buttons > div,
+    .stock-transfer-buttons button,
+    .stock-transfer-buttons .btn {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        font-size: 16px;
+        padding: 12px 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+}
+// Responsive table wrapper for horizontal scroll on mobile only
+@media (max-width: 600px) {
+    .stock-transfer-table-responsive-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .stock-transfer-table-responsive-wrapper .ReactTable .rt-table {
+        min-width: 700px;
+    }
+}
 .page {
     background-color: #f3f6f7;
 }

@@ -330,39 +330,41 @@ class CreateStockTransfer extends Component {
         {
           stockTransferItems
             ? (
-              <SelectTreeTable
-                data={stockTransferItems}
-                columns={columns}
-                ref={(r) => {
-                  this.selectTable = r;
-                }}
-                className="-striped -highlight"
-                {...extraProps}
-                defaultPageSize={Number.MAX_SAFE_INTEGER}
-                minRows={0}
-                showPaginationBottom={false}
-                filterable
-                defaultFilterMethod={this.filterMethod}
-                SelectInputComponent={({
-                  id,
-                  checked,
-                  onClick,
-                  row,
-                }) => (
-                  <input
-                    type={selectType}
-                    checked={checked}
-                    disabled={row && row.quantityNotPicked === 0}
-                    onChange={() => {}}
-                    onClick={(e) => {
-                      const { shiftKey } = e;
+              <div className="stock-transfer-table-responsive-wrapper">
+                <SelectTreeTable
+                  data={stockTransferItems}
+                  columns={columns}
+                  ref={(r) => {
+                    this.selectTable = r;
+                  }}
+                  className="-striped -highlight"
+                  {...extraProps}
+                  defaultPageSize={Number.MAX_SAFE_INTEGER}
+                  minRows={0}
+                  showPaginationBottom={false}
+                  filterable
+                  defaultFilterMethod={this.filterMethod}
+                  SelectInputComponent={({
+                    id,
+                    checked,
+                    onClick,
+                    row,
+                  }) => (
+                    <input
+                      type={selectType}
+                      checked={checked}
+                      disabled={row && row.quantityNotPicked === 0}
+                      onChange={() => {}}
+                      onClick={(e) => {
+                        const { shiftKey } = e;
 
-                      e.stopPropagation();
-                      onClick(id, shiftKey, row);
-                    }}
-                  />
-                )}
-              />
+                        e.stopPropagation();
+                        onClick(id, shiftKey, row);
+                      }}
+                    />
+                  )}
+                />
+              </div>
             )
             : null
         }
