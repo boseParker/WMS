@@ -1,0 +1,441 @@
+/* Styles for mobile devices */
+
+@media screen and (max-width: 480px) {
+    .nav {
+        padding: 0.5em;
+    }
+
+    .nav li {
+        margin: 0 0.5em 0 0;
+        padding: 0.25em;
+    }
+
+    /* Hide individual steps in pagination, just have next & previous */
+    .pagination .step, .pagination .currentStep {
+        display: none;
+    }
+
+    .pagination .prevLink {
+        float: left;
+    }
+
+    .pagination .nextLink {
+        float: right;
+    }
+
+    /* pagination needs to wrap around floated buttons */
+    .pagination {
+        overflow: hidden;
+    }
+
+    /* slightly smaller margin around content body */
+    fieldset,
+    .property-list {
+        padding: 0.3em 1em 1em;
+    }
+
+    input, textarea {
+        width: 100%;
+           -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+                box-sizing: border-box;
+    }
+
+    select, input[type=checkbox], input[type=radio], input[type=submit], input[type=button], input[type=reset] {
+        width: 100%;
+    }
+
+
+    input[type=text], input[type=password], input.text, input.large, span.large, textarea, select{
+        width: 100%;
+    }
+    /* hide all but the first column of list tables */
+    .scaffold-list td:not(:first-child),
+    .scaffold-list th:not(:first-child) {
+        display: none;
+    }
+
+    .scaffold-list thead th {
+        text-align: center;
+    }
+
+    /* stack form elements */
+    .fieldcontain {
+        margin-top: 0.6em;
+    }
+
+    .fieldcontain label,
+    .fieldcontain .property-label,
+    .fieldcontain .property-value {
+        display: block;
+        float: none;
+        margin: 0 0 0.25em 0;
+        text-align: left;
+        width: auto;
+    }
+
+    .errors ul,
+    .message p {
+        margin: 0.5em;
+    }
+
+    .error ul {
+        margin-left: 0;
+    }
+}
+
+/* ==========================================
+   OPENBOXES – MOBILE RESPONSIVE FIXES
+   ========================================== */
+
+@media (max-width: 768px) {
+
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Container spacing */
+  .container,
+  .container-fluid,
+  .row {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  /* Navbar fix */
+  .navbar {
+    padding-right: 0 !important;
+  }
+
+  .navbar-brand {
+    font-size: 16px !important;
+  }
+
+  /* Tabs fix (Add Product page) */
+  .tabs-ui ul {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabs-ui ul li {
+    flex: 0 0 auto;
+  }
+
+  .tabs-ui ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Forms */
+  input,
+  select,
+  textarea {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Buttons */
+  button,
+  input[type="submit"],
+  input[type="button"] {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  /* Tables */
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+
+  h1 { font-size: 20px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+
+  .navbar-brand {
+    font-size: 14px !important;
+  }
+}
+
+/* ==========================================
+   OPENBOXES FORM TABLE – MOBILE FIX
+   ========================================== */
+
+@media (max-width: 768px) {
+
+  /* Convert form table rows to stacked layout */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table tr.prop {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  table tr.prop td {
+    display: block;
+    width: 100% !important;
+    padding: 4px 6px;
+  }
+
+  /* Label column */
+  table tr.prop td.name {
+    font-weight: 600;
+    font-size: 13px;
+    color: #444;
+    padding-bottom: 4px;
+  }
+
+  /* Value column */
+  table tr.prop td.value {
+    padding-top: 0;
+  }
+
+  /* Inputs inside table */
+  table tr.prop td.value input,
+  table tr.prop td.value select,
+  table tr.prop td.value textarea {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* =====================================================
+   OPENBOXES – SELECT / DROPDOWN FIX (ALL DEVICES)
+   ===================================================== */
+
+/* ---------- BASE SELECT FIX ---------- */
+select {
+  width: 100% !important;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 32px;
+}
+
+/* Fix select inside table value column */
+table tr.prop td.value select {
+  width: 100% !important;
+}
+
+/* ---------- CHOSEN (chzn-select) FIX ---------- */
+.chzn-container,
+.chosen-container {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+.chzn-container-single .chzn-single,
+.chosen-container-single .chosen-single {
+  width: 100% !important;
+  height: 32px;
+  line-height: 30px;
+  box-sizing: border-box;
+}
+
+/* Dropdown list width */
+.chzn-container .chzn-drop,
+.chosen-container .chosen-drop {
+  width: 100% !important;
+}
+
+/* ---------- MOBILE STACK FIX ---------- */
+@media (max-width: 768px) {
+
+  table tr.prop {
+    display: block;
+    width: 100%;
+  }
+
+  table tr.prop td {
+    display: block;
+    width: 100% !important;
+  }
+
+  table tr.prop td.name {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  table tr.prop td.value select,
+  table tr.prop td.value .chzn-container,
+  table tr.prop td.value .chosen-container {
+    width: 100% !important;
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 480px) {
+
+  select {
+    font-size: 14px;
+    min-height: 36px;
+  }
+
+  .chzn-container-single .chzn-single,
+  .chosen-container-single .chosen-single {
+    height: 36px;
+    line-height: 34px;
+  }
+}
+
+
+/* =====================================================
+   OPENBOXES – SELECT / DROPDOWN FIX (ALL DEVICES)
+   ===================================================== */
+
+/* ---------- BASE SELECT FIX ---------- */
+select {
+  width: 100% !important;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 32px;
+}
+
+/* Fix select inside table value column */
+table tr.prop td.value select {
+  width: 100% !important;
+}
+
+/* ---------- CHOSEN (chzn-select) FIX ---------- */
+.chzn-container,
+.chosen-container {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+.chzn-container-single .chzn-single,
+.chosen-container-single .chosen-single {
+  width: 100% !important;
+  height: 32px;
+  line-height: 30px;
+  box-sizing: border-box;
+}
+
+/* Dropdown list width */
+.chzn-container .chzn-drop,
+.chosen-container .chosen-drop {
+  width: 100% !important;
+}
+
+/* ---------- MOBILE STACK FIX ---------- */
+@media (max-width: 768px) {
+
+  table tr.prop {
+    display: block;
+    width: 100%;
+  }
+
+  table tr.prop td {
+    display: block;
+    width: 100% !important;
+  }
+
+  table tr.prop td.name {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  table tr.prop td.value select,
+  table tr.prop td.value .chzn-container,
+  table tr.prop td.value .chosen-container {
+    width: 100% !important;
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 480px) {
+
+  select {
+    font-size: 14px;
+    min-height: 36px;
+  }
+
+  .chzn-container-single .chzn-single,
+  .chosen-container-single .chosen-single {
+    height: 36px;
+    line-height: 34px;
+  }
+}
+
+
+
+/* =================================================
+   MOBILE & TABLE FORM FIXES (OpenBoxes Product Form)
+   ================================================= */
+
+@media (max-width: 768px) {
+
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Stack form table rows */
+  table tr.prop {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  table tr.prop td {
+    display: block;
+    width: 100% !important;
+    padding: 4px 6px;
+  }
+
+  table tr.prop td.name {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  /* Inputs & selects inside table */
+  table tr.prop td.value input,
+  table tr.prop td.value textarea,
+  table tr.prop td.value select,
+  table tr.prop td.value .chzn-container,
+  table tr.prop td.value .chosen-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 6px 8px !important;
+    font-size: 16px !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  select {
+    min-height: 36px;
+    font-size: 14px;
+  }
+
+  .chzn-container-single .chzn-single,
+  .chosen-container-single .chosen-single {
+    height: 36px;
+    line-height: 34px;
+  }
+}
