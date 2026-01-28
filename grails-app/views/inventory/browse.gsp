@@ -21,17 +21,13 @@
 
             <g:render template="summary"/>
 
-            <div class="dialog">
-
-				<g:set var="pageParams" value="${pageScope.variables['params']}"/>
-	        	<g:set var="varStatus" value="${0}"/>
-	        	<g:set var="totalProducts" value="${0}"/>
-                <g:set var="maxResults" value="${(params.max as int)}"/>
-                <div class="yui-gf">
-					<div class="yui-u first">
+            <div class="container-fluid">
+                <div class="d-flex flex-column flex-lg-row">
+                    <div class="p-2" style="min-width: 300px;">
                         <g:render template="filters" model="[commandInstance:commandInstance]"/>
                     </div>
-					<div class="yui-u">
+                    <div class="flex-fill p-2">
+                        <g:set var="pageParams" value="${params}"/>
 
                         <div class="box">
 							<h2>
@@ -54,38 +50,32 @@
 							</h2>
                             <div id="tabs-1" style="padding: 0px;">
 					            <form id="inventoryBrowserForm" method="POST">
-					                <table id="inventoryBrowserTable" border="0">
-										<thead>
-				           					<tr>
-				           						<th>
-
-				           						</th>
-%{--				           						<th class="center middle">--}%
-%{--                                                   <g:render template="./actions" model="[]"/>--}%
-%{--				           						</th>--}%
-%{--												<th class="center middle" style="width: 1%">--}%
-%{--													<input type="checkbox" id="toggleCheckbox">--}%
-%{--												</th>--}%
-												<th class="middle">
-													<g:message code="product.label"/>
-												</th>
-												<th class="middle">
-													<g:message code="productType.label"/>
-												</th>
-                                                <th class="middle">
+					                <div class="table-responsive">
+					                    <table id="inventoryBrowserTable" class="table table-bordered">
+											<thead>
+					           					<tr>
+					           						<th>Image</th>
+					           						<th class="d-none d-md-table-cell"></th>
+													<th>
+														<g:message code="product.label"/>
+													</th>
+													<th>
+														<g:message code="productType.label"/>
+													</th>
+                                                <th>
                                                     <g:message code="category.label"/>
                                                 </th>
-                                                <th class="middle">
+                                                <th>
                                                     <g:message code="tag.label"/>
                                                 </th>
-                                                <th class="middle">
+                                                <th>
                                                     <g:message code="productCatalog.label"/>
                                                 </th>
-												<th class="center middle" style="width: 7%;">
+												<th>
 													<g:message code="default.qty.label"/>
 												</th>
-				           					</tr>
-										</thead>
+					           					</tr>
+											</thead>
                                         <tbody>
                                             <g:if test="${commandInstance?.searchResults}">
 												<g:each var="searchResult" in="${commandInstance?.searchResults}" status="i">
@@ -103,6 +93,7 @@
 															   </div>
 														   </g:else>
 														</td>
+														<td class="d-none d-md-table-cell"></td>
 														<td>
 															<g:link controller="inventoryItem" action="showStockCard" id="${searchResult?.product?.id}" style="color: ${searchResult?.product?.color}">
 																<format:displayName product="${searchResult?.product}" showProductCode="${true}" showTooltip="${true}" />
@@ -149,6 +140,7 @@
                                             </g:unless>
                                         </tbody>
 									</table>
+								</div>
 
 								</form>
 							</div>
@@ -213,6 +205,17 @@
 
 		    	$('.nailthumb-container').nailthumb({ width : 20, height : 20 });
 		    	$('.nailthumb-container-100').nailthumb({ width : 100, height : 100 });
+
+                // Responsive image sizing
+                function resizeThumbnails() {
+                    if ($(window).width() < 768) {
+                        $('.nailthumb-container').nailthumb({ width : 15, height : 15 });
+                    } else {
+                        $('.nailthumb-container').nailthumb({ width : 20, height : 20 });
+                    }
+                }
+                resizeThumbnails();
+                $(window).resize(resizeThumbnails);
 
                 $("#tagcloud a").tagcloud({
                     size: {

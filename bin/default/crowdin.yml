@@ -1,3 +1,0 @@
-files:
-  - source: /**/grails-app/i18n/messages.properties
-    translation: /**/grails-app/i18n/messages_%two_letters_code%.properties

@@ -32,72 +32,76 @@
                 </div>
             </div>
 
-            <div class="yui-gf">
-                <div class="box p-2">
-                    <g:message
-                            code="report.inventorySummary.instructions.label"
-                            default="In the Inventory Summary, you find a full list of products entered into OpenBoxes along with the current quantity at your location. If you have set stock levels, you will see how the inventory compares to your desired  stock levels. Use this summary and filters to find information about a specific product or group of products, their details, and their current quantity in your location."
-                    />
+<div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="box">
+                            <g:message
+                                    code="report.inventorySummary.instructions.label"
+                                    default="In the Inventory Summary, you find a full list of products entered into OpenBoxes along with the current quantity at your location. If you have set stock levels, you will see how the inventory compares to your desired  stock levels. Use this summary and filters to find information about a specific product or group of products, their details, and their current quantity in your location."
+                            />
+                        </div>
+                    </div>
                 </div>
-                <div class="yui-u first">
-                    <div class="box">
-                        <h2 class="middle"><g:message code="default.filters.label"/></h2>
-                        <g:form controller="${controllerName}" action="${actionName}" method="GET">
-                            <div class="filters">
-                                <div class="prop">
-                                    <div class="filter-list-item">
-                                        <label><warehouse:message code="category.label"/></label>
-                                        <p>
-                                            <g:selectCategory
-                                                    id="category" multiple="true"
-                                                    class="chzn-select-deselect filter"
-                                                    data-placeholder="${g.message(code: 'category.selectCategory.label', default: 'Select a category')}"
-                                                    name="categories"
-                                                    noSelection="['':'']"
-                                                    value="${params?.list('categories')}"
-                                            />
-                                        </p>
-                                        <p>
-                                            <label>
-                                                <g:checkBox name="includeSubcategories" value="${params?.includeSubcategories}" />
-                                                ${warehouse.message(
-                                                        code:'report.filter.includeAllSubcategories',
-                                                        default: 'Include all subcategories',
-                                                )}
-                                            </label>
-                                        </p>
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="box">
+                            <h2 class="middle"><g:message code="default.filters.label"/></h2>
+                            <g:form controller="${controllerName}" action="${actionName}" method="GET">
+                                <div class="filters">
+                                    <div class="prop">
+                                        <div class="filter-list-item">
+                                            <label><warehouse:message code="category.label"/></label>
+                                            <p>
+                                                <g:selectCategory
+                                                        id="category" multiple="true"
+                                                        class="chzn-select-deselect filter"
+                                                        data-placeholder="${g.message(code: 'category.selectCategory.label', default: 'Select a category')}"
+                                                        name="categories"
+                                                        noSelection="['':'']"
+                                                        value="${params?.list('categories')}"
+                                                />
+                                            </p>
+                                            <p>
+                                                <label>
+                                                    <g:checkBox name="includeSubcategories" value="${params?.includeSubcategories}" />
+                                                    ${warehouse.message(
+                                                            code:'report.filter.includeAllSubcategories',
+                                                            default: 'Include all subcategories',
+                                                    )}
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                        <button name="button" value="run" class="button">
+                                            <img src="${createLinkTo(dir:'images/icons/silk',file:'play_green.png')}" />&nbsp;
+                                        <g:message code="report.runReport.label"/>
+                                        </button>
+                                        <button name="button" value="download" class="button">
+                                            <img src="${resource(dir: 'images/icons/silk', file: 'page_white_excel.png')}" />
+                                            <g:message code="default.button.downloadAsCSV.label" default="Download as CSVs"/>
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="buttons">
-                                    <button name="button" value="run" class="button">
-                                        <img src="${createLinkTo(dir:'images/icons/silk',file:'play_green.png')}" />&nbsp;
-                                    <g:message code="report.runReport.label"/>
-                                    </button>
-                                    <button name="button" value="download" class="button">
-                                        <img src="${resource(dir: 'images/icons/silk', file: 'page_white_excel.png')}" />
-                                        <g:message code="default.button.downloadAsCSV.label" default="Download as CSVs"/>
-                                    </button>
-                                </div>
-                            </div>
-                        </g:form>
+                            </g:form>
+                        </div>
                     </div>
-
-                </div>
-                <div class="yui-u">
-
-                    <g:set var="totalStockValue" value="${0.00}"/>
-                    <div class="box">
-                        <h2>
-                            <warehouse:message code="${controllerName}.${actionName}.label"/> -
-                            <warehouse:message code="default.showing.message" args="[availableItems.size()]"/>
-                        </h2>
-                        <table id="inventoryTable">
-                            <thead>
-                            <tr>
-                                <th class="center"><warehouse:message code="inventoryLevel.status.label" default="Status"/></th>
-                                <th><warehouse:message code="product.productCode.label" default="Code"/></th>
-                                <th><warehouse:message code="product.label" default="Product"/></th>
-                                <th class="left"><warehouse:message code="product.productFamily.label" default="Product Family"/></th>
+                    <div class="col-md-8 col-sm-12">
+                        <g:set var="totalStockValue" value="${0.00}"/>
+                        <div class="box">
+                            <h2>
+                                <warehouse:message code="${controllerName}.${actionName}.label"/> -
+                                <warehouse:message code="default.showing.message" args="[availableItems.size()]"/>
+                            </h2>
+                            <div class="table-responsive">
+                                <table id="inventoryTable">
+                                <thead>
+                                <tr>
+                                    <th class="center"><warehouse:message code="inventoryLevel.status.label" default="Status"/></th>
+                                    <th><warehouse:message code="product.productCode.label" default="Code"/></th>
+                                    <th><warehouse:message code="product.label" default="Product"/></th>
+                                    <th class="left"><warehouse:message code="product.productFamily.label" default="Product Family"/></th>
                                 <th><warehouse:message code="category.label" default="Category"/></th>
                                 <th class="left"><warehouse:message code="inventoryLevel.abcClass.label" default="ABC Class"/></th>
                                 <th><warehouse:message code="product.unitOfMeasure.label" default="Unit of measure"/></th>
@@ -198,8 +202,10 @@
                                 </tfoot>
                             </g:if>
                         </table>
+                        </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
 
@@ -209,12 +215,12 @@
             var options = {
                 "bProcessing": true,
                 "iDisplayLength": 100,
-                "bSearch": false,
+                "bSearch": true,
                 "bScrollCollapse": true,
                 "bJQueryUI": true,
                 "bAutoWidth": true,
                 "bScrollInfinite": true,
-                "sScrollY": 500,
+                "sScrollY": ($(window).width() < 768) ? 200 : 500,
                 "sPaginationType": "two_button",
                 "oLanguage": {
                   "sEmptyTable": "${g.message(code: 'default.dataTable.noData.label', default: 'No data available in table')}",

@@ -60,6 +60,38 @@ html * {
 .available { background: #a8d1ff; color: #264409; border-color: black; } /* border-color: #C6D880; */
 .yui-gf .yui-u { margin-left:0px; width:75%; }
 
+/* Mobile responsive for YUI grids */
+@media (max-width: 767px) {
+    .yui-gf .yui-u,
+    .yui-gf .yui-u.first {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* Tablet responsive for inventory page */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .yui-gf .yui-u.first {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+    .yui-gf .yui-u {
+        width: 100% !important;
+    }
+    /* Filters full width on tablet */
+    .filter-list-item {
+        width: 100%;
+    }
+    .filter-list-item p {
+        width: 100%;
+    }
+    /* Images in table for tablet */
+    #inventoryTable img {
+        max-width: 30px;
+        height: auto;
+    }
+}
+
 body {
     background: var(--page-background, #fff);
     color: #333;
@@ -974,6 +1006,7 @@ button.action-btn, button.previous, button.next {
     padding: 0px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+    position: relative;
 }
 .box-barcode, .box-status {
     padding:5px;
@@ -1225,9 +1258,8 @@ h3 {
 h3.ui-state-active { background-color: #f7f7f7; }  /* #F8F7EF */
 
 .body {
-    /*margin-right: 5px;*/
-    /*padding: 0px 0 10px 0;*/
-
+    margin: 0;
+    padding: 0;
 }
 
 /* Added to fix an issue with being able to select actions from the action menu at the bottom of pages */
@@ -1235,7 +1267,7 @@ h3.ui-state-active { background-color: #f7f7f7; }  /* #F8F7EF */
 
 body {
     text-align: left;
-    padding-bottom: 50px;
+    padding: 0;
     font-family: 'Inter', sans-serif !important;
 }
 
@@ -4175,7 +4207,7 @@ table.pvtTable tr th { background-color: #ddd; }
 
 html, body {
     width: 100%;
-    overflow-x: hidden;
+    overflow-x:auto;
 }
 
 #doc3 {
@@ -4248,4 +4280,599 @@ html, body {
         max-width: 90vw;
     }
 }
+
+/* Inventory Browse Responsive Styles */
+.table-responsive {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow-x: auto;
+    overflow-y: visible;
+}
+.table {
+    margin-bottom: 0;
+}
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    color: #495057;
+}
+.table tbody tr:hover {
+    background-color: #f1f3f4;
+}
+.chzn-container {
+    font-size: 14px;
+}
+.chzn-container-single .chzn-single {
+    height: 38px;
+    line-height: 36px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    background: #fff;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+}
+.chzn-container-active .chzn-single {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.badge {
+    font-size: 0.75em;
+}
+/* Mobile responsive styles for selects */
+@media (max-width: 768px) {
+    .filter .chzn-container,
+    .chzn-select-deselect {
+        width: 100% !important;
+    }
+    .filter-list-item p {
+        width: 100%;
+    }
+    .chzn-container-single .chzn-single {
+        height: 38px !important;
+        line-height: 36px !important;
+        font-size: 14px;
+        padding: 0 8px;
+        text-align: center;
+    }
+    .chzn-drop {
+        max-height: 100px !important;
+        overflow-y: auto;
+    }
+    .chzn-results li {
+        height: 38px;
+        line-height: 38px;
+        padding: 0 6px;
+        font-size: 12px;
+    }
+}
+
+/* ===============================
+   HEIGHT & SPACING FIX
+   =============================== */
+@media (max-width: 768px) {
+
+  /* Reduce overall vertical gaps */
+  .filter-list-item {
+    margin: 6px 0 !important;
+  }
+
+  .box {
+    padding: 6px !important;
+  }
+
+  /* Input height uniform */
+  input[type="text"],
+  input[type="search"],
+  select,
+  textarea {
+    height: 36px !important;
+    padding: 6px 8px !important;
+    font-size: 14px;
+  }
+
+  /* Checkbox alignment */
+  .form-check-inline {
+    min-height: auto !important;
+    padding: 4px 0;
+  }
+
+  /* Chosen select height fix */
+  .chzn-container-single .chzn-single {
+    height: 36px !important;
+    line-height: 34px !important;
+    padding: 0 8px;
+  }
+
+  .chzn-container-single .chzn-single span {
+    line-height: 34px !important;
+  }
+
+  /* Dropdown list height */
+  .chzn-results li {
+    line-height: 34px !important;
+    padding: 0 8px !important;
+  }
+
+  /* Buttons height */
+  .buttons .btn,
+  .buttons a {
+    height: 38px;
+    line-height: 36px;
+    font-size: 14px;
+  }
+}
+
+/* Inventory Browser Table Styles for Responsive Table Format */
+#inventoryBrowserTable {
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    font-size: 14px;
+    min-width: 1000px; /* Ensure table is wider than container to force scrolling */
+}
+
+#inventoryBrowserTable th,
+#inventoryBrowserTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+#inventoryBrowserTable th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#inventoryBrowserTable tbody tr {
+    background-color: #ffffff;
+}
+
+#inventoryBrowserTable tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Column widths for fixed layout */
+#inventoryBrowserTable th:nth-child(1),
+#inventoryBrowserTable td:nth-child(1) {
+    width: 60px; /* Image column */
+}
+
+#inventoryBrowserTable th:nth-child(2),
+#inventoryBrowserTable td:nth-child(2) {
+    width: 40px; /* Empty column */
+}
+
+#inventoryBrowserTable th:nth-child(3),
+#inventoryBrowserTable td:nth-child(3) {
+    width: 200px; /* Product */
+    min-width: 200px;
+}
+
+#inventoryBrowserTable th:nth-child(4),
+#inventoryBrowserTable td:nth-child(4) {
+    width: 120px; /* Product Type */
+    min-width: 120px;
+}
+
+#inventoryBrowserTable th:nth-child(5),
+#inventoryBrowserTable td:nth-child(5) {
+    width: 150px; /* Category */
+    min-width: 150px;
+}
+
+#inventoryBrowserTable th:nth-child(6),
+#inventoryBrowserTable td:nth-child(6) {
+    width: 120px; /* Tag */
+    min-width: 120px;
+}
+
+#inventoryBrowserTable th:nth-child(7),
+#inventoryBrowserTable td:nth-child(7) {
+    width: 150px; /* Product Catalog */
+    min-width: 150px;
+}
+
+#inventoryBrowserTable th:nth-child(8),
+#inventoryBrowserTable td:nth-child(8) {
+    width: 80px; /* Qty */
+    min-width: 80px;
+}
+
+/* Ensure table responsive overflow */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 767px) {
+    #inventoryBrowserTable {
+        font-size: 12px;
+    }
+    #inventoryBrowserTable th,
+    #inventoryBrowserTable td {
+        padding: 4px;
+        white-space: nowrap;
+    }
+    #inventoryBrowserTable th:nth-child(1),
+    #inventoryBrowserTable td:nth-child(1) {
+        width: 50px;
+    }
+    #inventoryBrowserTable th:nth-child(2),
+    #inventoryBrowserTable td:nth-child(2) {
+        display: none; /* Hide empty column on mobile */
+    }
+}
+
+/* Inventory Browser Table Styles */
+#inventoryBrowserTable {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+#inventoryBrowserTable th,
+#inventoryBrowserTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+}
+
+#inventoryBrowserTable th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#inventoryBrowserTable tbody tr {
+    background-color: #ffffff;
+}
+
+#inventoryBrowserTable tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Ensure table responsive overflow */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 767px) {
+    #inventoryBrowserTable {
+        font-size: 12px;
+    }
+    #inventoryBrowserTable th,
+    #inventoryBrowserTable td {
+        padding: 4px;
+        min-width: 120px;
+    }
+}
+
+/* Inventory Summary Table Styles for Responsive */
+#inventoryTable {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100vw;
+    background-color: #ffffff;
+    font-size: 14px;
+    
+    overflow: scroll;
+    /* min-width removed for larger screens */
+}
+
+#inventoryTable th,
+#inventoryTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+#inventoryTable tbody tr {
+    background-color: #ffffff;
+}
+
+#inventoryTable tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Column widths for fixed layout */
+#inventoryTable th:nth-child(1),
+#inventoryTable td:nth-child(1) {
+    width: 80px; /* Status */
+    min-width: 80px;
+}
+
+#inventoryTable th:nth-child(2),
+#inventoryTable td:nth-child(2) {
+    width: 100px; /* Code */
+    min-width: 100px;
+}
+
+#inventoryTable th:nth-child(3),
+#inventoryTable td:nth-child(3) {
+    width: 250px; /* Product */
+    min-width: 250px;
+}
+
+#inventoryTable th:nth-child(4),
+#inventoryTable td:nth-child(4) {
+    width: 150px; /* Product Family */
+    min-width: 150px;
+}
+
+#inventoryTable th:nth-child(5),
+#inventoryTable td:nth-child(5) {
+    width: 150px; /* Category */
+    min-width: 150px;
+}
+
+#inventoryTable th:nth-child(6),
+#inventoryTable td:nth-child(6) {
+    width: 100px; /* ABC Class */
+    min-width: 100px;
+}
+
+#inventoryTable th:nth-child(7),
+#inventoryTable td:nth-child(7) {
+    width: 100px; /* Unit of measure */
+    min-width: 100px;
+}
+
+#inventoryTable th:nth-child(8),
+#inventoryTable td:nth-child(8) {
+    width: 120px; /* Min quantity */
+    min-width: 120px;
+}
+
+#inventoryTable th:nth-child(9),
+#inventoryTable td:nth-child(9) {
+    width: 120px; /* Reorder quantity */
+    min-width: 120px;
+}
+
+#inventoryTable th:nth-child(10),
+#inventoryTable td:nth-child(10) {
+    width: 120px; /* Max quantity */
+    min-width: 120px;
+}
+
+#inventoryTable th:nth-child(11),
+#inventoryTable td:nth-child(11) {
+    width: 120px; /* Current quantity */
+    min-width: 120px;
+}
+
+#inventoryTable th:nth-child(12),
+#inventoryTable td:nth-child(12) {
+    width: 120px; /* Quantity ATP */
+    min-width: 120px;
+}
+
+#inventoryTable th:nth-child(13),
+#inventoryTable td:nth-child(13) {
+    width: 120px; /* Unit Price */
+    min-width: 120px;
+}
+
+#inventoryTable th:nth-child(14),
+#inventoryTable td:nth-child(14) {
+    width: 120px; /* Total amount */
+    min-width: 120px;
+}
+
+/* Mobile specific adjustments for inventory table */
+@media (max-width: 767px) {
+    #inventoryTable {
+        font-size: 12px;
+        min-width: 1200px; /* Keep wide for scrolling */
+        margin: 0 auto; /* Center the table */
+    }
+    #inventoryTable th,
+    #inventoryTable td {
+        padding: 4px;
+        white-space: nowrap;
+        text-align: center; /* Center align for better look */
+    }
+    #inventoryTable th {
+        text-align: center;
+    }
+    #inventoryTable td {
+        text-align: left; /* Override for data cells */
+    }
+    #inventoryTable td.center {
+        text-align: center;
+    }
+    /* Show all columns on mobile for full data */
+    /* Images smaller on mobile */
+    #inventoryTable img {
+        max-width: 20px;
+        height: auto;
+    }
+    /* Smaller text for tfoot on mobile */
+    #inventoryTable tfoot th,
+    #inventoryTable tfoot td {
+        font-size: 10px;
+        padding: 2px;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+    #inventoryTable {
+        font-size: 13px;
+    }
+    #inventoryTable th,
+    #inventoryTable td {
+        padding: 6px;
+    }
+    /* Show all columns on tablet for full data */
+}
+
+/* Laptop and larger screens */
+@media (min-width: 1025px) {
+    #inventoryTable {
+        font-size: 14px;
+        table-layout: auto; /* Allow columns to adjust width */
+    }
+    #inventoryTable th,
+    #inventoryTable td {
+        padding: 8px;
+        white-space: normal; /* Allow text wrapping */
+    }
+    /* Remove fixed widths for auto layout */
+    #inventoryTable th:nth-child(1),
+    #inventoryTable td:nth-child(1),
+    #inventoryTable th:nth-child(2),
+    #inventoryTable td:nth-child(2),
+    #inventoryTable th:nth-child(3),
+    #inventoryTable td:nth-child(3),
+    #inventoryTable th:nth-child(4),
+    #inventoryTable td:nth-child(4),
+    #inventoryTable th:nth-child(5),
+    #inventoryTable td:nth-child(5),
+    #inventoryTable th:nth-child(6),
+    #inventoryTable td:nth-child(6),
+    #inventoryTable th:nth-child(7),
+    #inventoryTable td:nth-child(7),
+    #inventoryTable th:nth-child(8),
+    #inventoryTable td:nth-child(8),
+    #inventoryTable th:nth-child(9),
+    #inventoryTable td:nth-child(9),
+    #inventoryTable th:nth-child(10),
+    #inventoryTable td:nth-child(10),
+    #inventoryTable th:nth-child(11),
+    #inventoryTable td:nth-child(11),
+    #inventoryTable th:nth-child(12),
+    #inventoryTable td:nth-child(12),
+    #inventoryTable th:nth-child(13),
+    #inventoryTable td:nth-child(13),
+    #inventoryTable th:nth-child(14),
+    #inventoryTable td:nth-child(14) {
+        width: auto;
+        min-width: auto;
+    }
+    /* Show all columns on larger screens */
+}
+
+/* Parent container for inventory table */
+#inventoryTable_wrapper {
+    position: relative;   /* REQUIRED */
+}
+
+
+/* Inventory search toolbar fixed relative to table */
+#inventoryTable_wrapper
+.fg-toolbar.ui-toolbar.ui-widget-header.ui-corner-tl.ui-corner-tr.ui-helper-clearfix {
+    position: sticky;
+    top: 0;                /* sticks inside parent */
+    z-index: 20;
+    background: #f9f9f9;
+}
+
+/* Sticky search bar above table, responsive and non-overlapping */
+.search-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+body {
+    /* no padding needed for sticky search bar */
+}
+
+#inventoryTable {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+}
+
+#inventoryTable thead th {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: #f8f9fa;
+}
+
+#inventoryTable tfoot th, #inventoryTable tfoot td {
+        position: sticky;
+        bottom: 0;
+        z-index: 5;
+        background: #f8f9fa;
+}
+
+.table-scroll-x {
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+@media (max-width: 767px) {
+    .search-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-width: 0;
+        max-width: 100vw;
+        padding: 8px 4px;
+        font-size: 14px;
+        z-index: 1000;
+        box-sizing: border-box;
+    }
+
+    .table-scroll-x {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0;
+    }
+    #inventoryTable {
+        min-width: 1200px;
+        font-size: 12px;
+    }
+    #inventoryTable th, #inventoryTable td {
+        padding: 4px;
+        white-space: nowrap;
+        font-size: 12px;
+    }
+   
+}
+
+
+
+
+
 
